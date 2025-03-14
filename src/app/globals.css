@@ -2,20 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+* {
+  font-family: Outfit;
 }
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --primary: 346 77% 49%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --border: 220 13% 91%; /* Define border variable */
+  }
+
+  .dark {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --primary: 346 77% 49%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --border: 240 4% 16%; /* Define border for dark mode */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    border-color: hsl(var(--border)); /* Use the variable */
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+  }
 }
