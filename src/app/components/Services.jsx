@@ -92,13 +92,14 @@ const ServicesCard = ({ icon: Icon, title, description, features, isActive, onCl
             ))}
             
             <motion.a 
-              href="#contact"
+            
+              href="https://github.com/Muhammad-Irfanum"
               className="mt-8 w-full py-4 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 text-white font-medium
                 hover:bg-white/20 transition-all duration-300 flex items-center justify-center gap-2 group"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
-              Learn More
+              GitHub
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </motion.a>
           </motion.div>
@@ -114,7 +115,7 @@ const ServicesCard = ({ icon: Icon, title, description, features, isActive, onCl
             <div className={`flex items-center text-sm font-medium ${
               isActive ? "text-white" : "text-blue-600 dark:text-blue-400"
             }`}>
-              Learn More <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+              GitHub <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
             </div>
           </motion.div>
         )}

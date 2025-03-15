@@ -154,49 +154,49 @@ const LatestWork = () => {
   // ... projects array remains the same ...
   const projects = [
     {
-      title: "Modern E-commerce Platform",
+      title: "Affilito E-commerce Platform",
       category: "Web Development",
-      image: assets.react_native,
-      description: "A fully responsive e-commerce platform built with Next.js, Tailwind CSS, and integrated with Stripe payment processing. Features include product filtering, search, user authentication, and order tracking.",
-      technologies: ["Next.js", "React", "Tailwind CSS", "Stripe", "MongoDB"],
-      demoLink: "#",
-      githubLink: "#"
+      image: "/work-1.png",
+      description: "A full-stack Affilito platform with product listings, shopping cart, and payment processing. Built with Next.js, React, and Tailwind CSS, integrated with Stripe and MongoDB.",
+      technologies: ["Next.js", "React", "Tailwind CSS", "MongoDB"],
+      demoLink: "https://affillato.vercel.app/",
+      githubLink: "https://github.com/Muhammad-Irfanum"
     },
     {
-      title: "Finance Dashboard",
+      title: "HR Dashboard",
       category: "Web Application",
-      image: assets.react_native,
+      image: "/work-2.png",
       description: "A comprehensive finance dashboard for tracking investments, expenses, and income. Built with React and Chart.js, featuring real-time data visualization, budget planning, and financial goal tracking.",
       technologies: ["React", "Chart.js", "Firebase", "Material UI"],
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Muhammad-Irfanum"
     },
     {
-      title: "Health & Fitness App",
+      title: "AASANI APP",
       category: "Mobile App",
-      image: assets.react_native,
-      description: "A cross-platform fitness application built with React Native. Features include workout tracking, nutrition planning, progress visualization, and social sharing capabilities.",
+      image: "/work-3.png",
+      description: "AASANI is a mobile application that connects travelers with clients to provide on-demand luggage storage and delivery services. Built with React Native, Expo, and Firebase.",
       technologies: ["React Native", "Expo", "Firebase", "Redux"],
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Muhammad-Irfanum"
     },
     {
       title: "Real Estate Platform",
       category: "Web Development",
-      image: assets.react_native,
+      image: "/work-4.png",
       description: "A modern real estate platform with property listings, advanced filtering, virtual tours, and appointment scheduling. Built with Next.js and integrated with Google Maps API.",
       technologies: ["Next.js", "Google Maps API", "Prisma", "PostgreSQL"],
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Muhammad-Irfanum"
     },
     {
-      title: "AI-Powered Task Manager",
-      category: "Web Application",
-      image: assets.react_native, 
-      description: "A smart task management application that uses AI to prioritize tasks, suggest time allocations, and provide productivity insights. Built with React and integrated with OpenAI's API.",
-      technologies: ["React", "Node.js", "OpenAI API", "MongoDB"],
+      title: "UI Design",
+      category: "Figma Prototype",
+      image: "/work-1.png", 
+      description: "A mobile application prototype for a social networking platform. Features include user profiles, messaging, notifications, and news feed. Designed with Figma and prototyped with Framer.",
+      technologies: ["Figma", "Framer", "UI/UX Design"],
       demoLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Muhammad-Irfanum"
     }
   ];
 

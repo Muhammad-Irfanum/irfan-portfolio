@@ -131,7 +131,7 @@ const GetInTouch = () => {
                       href="tel:+923001234567"
                       className="text-lg font-medium text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
-                      +92 300 123 4567
+                      +92335 8419837
                     </a>
                   </div>
                 </motion.div>
@@ -146,7 +146,7 @@ const GetInTouch = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1">Location</h4>
-                    <p className="text-lg font-medium text-gray-900 dark:text-white">Peshawar, KPK, Pakistan</p>
+                    <p className="text-lg font-medium text-gray-900 dark:text-white">Kohat, KPK, Pakistan</p>
                   </div>
                 </motion.div>
               </div>
@@ -237,7 +237,7 @@ const GetInTouch = () => {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900
                         focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                      placeholder="John Doe"
+                      placeholder="Irfii"
                     />
                   </div>
 
@@ -254,7 +254,7 @@ const GetInTouch = () => {
                       required
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900
                         focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all"
-                      placeholder="john@example.com"
+                      placeholder="irfii@example.com"
                     />
                   </div>
                 </div>
