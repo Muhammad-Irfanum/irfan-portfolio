@@ -1,9 +1,7 @@
 "use client"
 
-// import type React from "react"
-
-import { useState } from "react"
-import { ArrowRight, Mail, MapPin, Phone, Send, CheckCircle } from "lucide-react"
+import { useState, useEffect } from "react"
+import { ArrowRight, Mail, MapPin, Phone, Send, CheckCircle, AlertCircle } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTheme } from "next-themes"
 
@@ -16,6 +14,7 @@ const GetInTouch = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState(null)
   const { theme } = useTheme()
   const isDark = theme === "dark"
 
@@ -29,24 +28,54 @@ const GetInTouch = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
+    setError(null)
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
+    try {
+      const formData = {
+        access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
+        name: formState.name,
+        email: formState.email,
+        subject: formState.subject,
+        message: formState.message,
+        from_name: "Portfolio Contact Form",
+        replyto: formState.email,
+        botcheck: false
+      }
+      if (!formData.access_key || !/^[\w-]{36}$/.test(formData.access_key)) {
+        throw new Error("Invalid API key configuration")
+      }
 
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormState({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    })
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
 
-    // Reset success message after 5 seconds
-    setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+      const data = await response.json()
+      
+      if (data.success) {
+        setIsSubmitted(true)
+        setFormState({ name: "", email: "", subject: "", message: "" })
+      } else {
+        throw new Error(data.message || "Form submission failed")
+      }
+    } catch (error) {
+      console.error("Submission error:", error)
+      setError(error)
+    } finally {
+      setIsSubmitting(false)
+      setTimeout(() => {
+        setIsSubmitted(false)
+        setError(null)
+      }, 5000)
+    }
+    
   }
+  useEffect(() => {
+    console.log("Web3Forms Key:", process.env.NEXT_PUBLIC_WEB3FORMS_KEY)
+  }, [])
 
   return (
     <section
@@ -221,8 +250,31 @@ const GetInTouch = () => {
                   Thank you for reaching out. I'll get back to you as soon as possible.
                 </p>
               </motion.div>
+            ) : error ? (
+              <motion.div
+                className="bg-red-50 dark:bg-red-900/20 border border-red-100 dark:border-red-800 rounded-2xl p-6 text-center"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
+                <AlertCircle className="w-12 h-12 text-red-500 mx-auto mb-4" />
+                <h4 className="text-xl font-bold text-red-800 dark:text-red-400 mb-2">
+                  Error Sending Message
+                </h4>
+                <p className="text-red-700 dark:text-red-300">
+                  {error.message || 'Please try again later.'}
+                </p>
+              </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                  style={{ display: "none" }}
+                  checked={false}
+                  onChange={() => {}}
+                />
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -327,4 +379,3 @@ const GetInTouch = () => {
 }
 
 export default GetInTouch
-
